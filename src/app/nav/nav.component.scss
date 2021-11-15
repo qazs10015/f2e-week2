@@ -1,0 +1,36 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 26px 40px;
+  .basicInfo {
+    display: flex;
+  }
+  .menu {
+    display: flex;
+    margin: 0;
+    list-style: none;
+    justify-content: space-between;
+    li {
+      padding: 10px;
+      text-align: right;
+      width: 130px;
+      a {
+        text-decoration: none;
+      }
+      a:hover {
+        font-weight: bold;
+      }
+    }
+  }
+  .weatherInfo {
+    display: flex;
+    .weatherInfoItem {
+      width: 60px;
+      text-align: right;
+      i {
+        margin: 0 3px;
+      }
+    }
+  }
+}

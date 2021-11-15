@@ -1,8 +1,41 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+@import "~@fortawesome/fontawesome-free/scss/regular";
+@import "~@fortawesome/fontawesome-free/scss/brands";
+
 @import url("https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700&display=swap");
 @import url("assets/styles/custom-color.scss");
 
+html,
 body {
   height: 100%;
   font-family: "Archivo", sans-serif;
 }
+
+// PC
+@media only screen and (min-width: 769px) {
+  body {
+    font-size: 16px;
+    line-height: 17px;
+  }
+}
+
+// Tablet
+@media only screen and (min-width: 321px) and (max-width: 768px) {
+  body {
+    font-size: 14px;
+    line-height: 15px;
+  }
+}
+
+// modile
+@media only screen and (min-width: 0px) and (max-width: 320px) {
+  body {
+    font-size: 12px;
+    line-height: 13px;
+  }
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
