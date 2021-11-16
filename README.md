@@ -1,7 +1,7 @@
 # 六角學院第三屆精神時光屋-第二週
 ## 前端個人組
 
-[Demo](https://qazs10015.github.io/f2e-week1/#/home)
+[Demo](https://qazs10015.github.io/f2e-week２/#/bikeStation)
 
 開發框架： Angualr
 
