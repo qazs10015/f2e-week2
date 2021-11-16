@@ -3,7 +3,7 @@
 
 [Demo](https://qazs10015.github.io/f2e-week2/#/bikeStation)
 
-開發框架： Angualr
+開發框架： Angular
 
  其他套件：[Angualr Material](https://material.angular.io/)、[Angular GoogleMap](https://github.com/angular/components/tree/master/src/google-maps)、[ngx-pagination](https://www.npmjs.com/package/ngx-pagination)、[jssha(加密套件)](https://github.com/Caligatio/jsSHA)
 
