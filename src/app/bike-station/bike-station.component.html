@@ -1,0 +1,31 @@
+<div class="searchBar">
+  <input
+    autofocus
+    matInput
+    type="text"
+    placeholder="搜尋 Youbike 租借站"
+    [matAutocomplete]="auto"
+  />
+  <a href=""><i class="fas fa-search"></i></a>
+</div>
+<mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+  <mat-option
+    *ngFor="let option of autoCompleteOptions"
+    [value]="autoCompleteOptions"
+  >
+    <div class="autoCompleteOption color1">
+      <i class="fas fa-location-arrow"></i>{{ option }}
+    </div>
+  </mat-option>
+</mat-autocomplete>
+
+<google-map
+  class="map"
+  height="100%"
+  width="100%"
+  [zoom]="zoom"
+  [center]="center"
+  [options]="options"
+>
+  <map-polyline [options]="polyOptions" [path]="polyPath"></map-polyline>
+</google-map>

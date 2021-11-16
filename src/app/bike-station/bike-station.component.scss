@@ -1,0 +1,42 @@
+.searchBar {
+  position: absolute;
+  top: 17vh;
+  left: 38vw;
+  display: flex;
+  width: 400px;
+  height: 54px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  justify-content: center;
+  z-index: 999;
+  align-items: center;
+  input {
+    width: 300px;
+    outline: none;
+    margin-right: 10px;
+    border: none;
+    height: 80px;
+    background: transparent;
+  }
+  a {
+    display: block;
+    border-radius: 10px;
+    width: 38px;
+    height: 38px;
+    background-color: #f25c54;
+    text-align: center;
+    font-size: 20px;
+    line-height: 40px;
+    i {
+      color: #ffffff;
+    }
+  }
+}
+
+.autoCompleteOption {
+  width: 100%;
+  height: 40px;
+  i {
+    margin-right: 10px;
+  }
+}

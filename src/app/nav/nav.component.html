@@ -4,9 +4,24 @@
       <img src="assets/images/logo.png" alt="logo" />
     </a>
     <ul class="menu">
-      <li><a href="" class="color3">Youbike 租借站點</a></li>
-      <li><a href="" class="color3">自行車路線</a></li>
-      <li><a href="" class="color3">美食景點</a></li>
+      <li>
+        <a
+          routerLink="/bikeStation"
+          [routerLinkActive]="'active'"
+          class="color3"
+          >Youbike 租借站點</a
+        >
+      </li>
+      <li>
+        <a routerLink="/bikeLine" [routerLinkActive]="'active'" class="color3"
+          >自行車路線</a
+        >
+      </li>
+      <li>
+        <a routerLink="/scenicSpot" [routerLinkActive]="'active'" class="color3"
+          >美食景點</a
+        >
+      </li>
     </ul>
   </div>
   <div class="weatherInfo">

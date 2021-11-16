@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 26px 40px;
+  padding: 26px 40px;
   .basicInfo {
     display: flex;
   }
@@ -14,11 +14,13 @@
     li {
       padding: 10px;
       text-align: right;
-      width: 130px;
       a {
         text-decoration: none;
       }
       a:hover {
+        font-weight: bold;
+      }
+      .active {
         font-weight: bold;
       }
     }
@@ -26,7 +28,7 @@
   .weatherInfo {
     display: flex;
     .weatherInfoItem {
-      width: 60px;
+      width: 80px;
       text-align: right;
       i {
         margin: 0 3px;
