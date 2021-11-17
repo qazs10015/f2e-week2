@@ -11,7 +11,7 @@ import { SharedModule } from './shared/shared.module';
 import { BikeStationComponent } from './bike-station/bike-station.component';
 import { ScenicSpotComponent } from './scenic-spot/scenic-spot.component';
 import { BikeLineComponent } from './bike-line/bike-line.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,7 +27,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     SharedModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

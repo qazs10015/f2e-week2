@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { BikeAvailability } from '../models/bike-availability.model';
 import { BikeShape } from '../models/bike-shape.model';
@@ -49,8 +50,10 @@ export class BikeStationService {
     return this.http.get<BikeShape[]>(this.cyclingApi + city, { params: params });
   }
 
-  /** 取得附近的 Bike 租借站資料 */
-  getBikeStationNearBy(position: { lat: number, lng: number }, distance = 500, keyword?: string, top?: number) {
+  /** 取得附近的 Bike 租借站資料
+   *  預設搜尋附近 1公里
+   */
+  getBikeStationNearBy(position: { lat: number, lng: number }, keyword?: string, distance = 1000, top?: number): Observable<BikeStation[]> {
     let params: any = {
       $format: 'JSON',
 

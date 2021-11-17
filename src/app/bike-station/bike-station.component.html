@@ -5,8 +5,9 @@
     placeholder="搜尋 Youbike 租借站"
     class="color1"
     [matAutocomplete]="auto"
+    [(ngModel)]="keyword"
   />
-  <a href=""><i class="fas fa-search"></i></a>
+  <a (click)="search()"><i class="fas fa-search"></i></a>
 </div>
 <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
   <mat-option
@@ -24,8 +25,13 @@
   height="100%"
   width="100%"
   [zoom]="zoom"
-  [center]="center"
+  [center]="currentPosition"
   [options]="options"
 >
+  <map-marker
+    *ngFor="let marker of markerPositions"
+    [position]="marker"
+    [options]="markerOptions"
+  ></map-marker>
   <map-polyline [options]="polyOptions" [path]="polyPath"></map-polyline>
 </google-map>
