@@ -1,3 +1,4 @@
+import { LocationService } from './../services/location.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -44,9 +45,10 @@ export class BikeStationComponent implements OnInit {
     zoomControl: true,
   };
 
-  constructor() { }
+  constructor(private locationService: LocationService) { }
 
-  ngOnInit(): void {
+  async ngOnInit() {
+    console.log(await this.locationService.getPosition());
   }
 
 }
