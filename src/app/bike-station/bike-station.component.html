@@ -28,17 +28,22 @@
   [center]="currentPosition"
   [options]="googleMapOptions"
 >
+  <!-- 自己的位置 -->
   <map-marker
     [position]="currentPosition"
     [options]="currentMarkerPositionOption"
   ></map-marker>
+
+  <!-- 租借站的位置 -->
   <map-marker
     #marker="mapMarker"
-    *ngFor="let markerPosition of markerPositions"
-    [position]="markerPosition"
+    *ngFor="let item of lstBikeStationInfo"
+    [position]="item.StationPosition"
     [options]="markerOptions"
-    (mapClick)="openInfoWindow(marker, markerPosition)"
+    [icon]="item.ServiceStatus === 1 ? '' : disableIcon"
+    (mapClick)="openInfoWindow(marker, item.StationPosition)"
   ></map-marker>
+
   <map-info-window>
     <div class="googleInfoWindow">
       <div class="title blue">
