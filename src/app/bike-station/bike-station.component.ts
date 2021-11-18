@@ -27,6 +27,12 @@ export class BikeStationComponent implements OnInit {
 
   @ViewChild(MapInfoWindow) infoWindow!: MapInfoWindow;
 
+  /** 暫停營運或停止營運的 icon */
+  disableIcon = '../../assets/icons/grayMarker.png';
+
+  /** 自己位置的 icon */
+  private selfIcon = '../../assets/icons/marker.png';
+
   /** 關鍵字 */
   keyword = '';
 
@@ -42,7 +48,7 @@ export class BikeStationComponent implements OnInit {
   currentMarkerPositionOption: google.maps.MarkerOptions = {
     title: '你的位置',
     draggable: false,
-    icon: '../../assets/icons/marker.png',
+    icon: this.selfIcon,
     animation: google.maps.Animation.BOUNCE,
     clickable: true
   }
@@ -79,7 +85,7 @@ export class BikeStationComponent implements OnInit {
     ],
   };
 
-  private lstBikeStationInfo: customInfoWindow[] = [];
+  lstBikeStationInfo: customInfoWindow[] = [];
 
   currentSelectInfoWindow: customInfoWindow = {} as customInfoWindow;
 
