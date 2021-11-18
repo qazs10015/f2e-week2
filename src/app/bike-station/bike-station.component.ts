@@ -28,10 +28,10 @@ export class BikeStationComponent implements OnInit {
   @ViewChild(MapInfoWindow) infoWindow!: MapInfoWindow;
 
   /** 暫停營運或停止營運的 icon */
-  disableIcon = '../../assets/icons/grayMarker.png';
+  disableIcon = 'assets/icons/grayMarker.png';
 
   /** 自己位置的 icon */
-  private selfIcon = '../../assets/icons/marker.png';
+  private selfIcon = 'assets/icons/marker.png';
 
   /** 關鍵字 */
   keyword = '';
