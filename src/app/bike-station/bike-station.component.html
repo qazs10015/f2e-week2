@@ -26,12 +26,47 @@
   width="100%"
   [zoom]="zoom"
   [center]="currentPosition"
-  [options]="options"
+  [options]="googleMapOptions"
 >
   <map-marker
-    *ngFor="let marker of markerPositions"
-    [position]="marker"
-    [options]="markerOptions"
+    [position]="currentPosition"
+    [options]="currentMarkerPositionOption"
   ></map-marker>
+  <map-marker
+    #marker="mapMarker"
+    *ngFor="let markerPosition of markerPositions"
+    [position]="markerPosition"
+    [options]="markerOptions"
+    (mapClick)="openInfoWindow(marker, markerPosition)"
+  ></map-marker>
+  <map-info-window>
+    <div class="googleInfoWindow">
+      <div class="title blue">
+        <ng-container [ngSwitch]="currentSelectInfoWindow.ServiceStatus">
+          <div *ngSwitchCase="0" class="status gray">停止營運</div>
+          <div *ngSwitchCase="2" class="status gray">暫停營運</div>
+          <div *ngSwitchCase="1" class="status green">正常營運</div>
+        </ng-container>
+        {{ currentSelectInfoWindow?.StationName }}
+      </div>
+
+      <div class="info">
+        <div
+          [ngClass]="{ red: currentSelectInfoWindow?.AvailableRentBikes === 0 }"
+        >
+          可借：{{ currentSelectInfoWindow?.AvailableRentBikes }}
+        </div>
+        <div
+          [ngClass]="{
+            red: currentSelectInfoWindow?.AvailableReturnBikes === 0
+          }"
+        >
+          空位：{{ currentSelectInfoWindow?.AvailableReturnBikes }}
+        </div>
+      </div>
+    </div>
+  </map-info-window>
   <map-polyline [options]="polyOptions" [path]="polyPath"></map-polyline>
 </google-map>
+
+ServiceStatus AvailableRentBikes AvailableReturnBikes

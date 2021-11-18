@@ -53,7 +53,7 @@ export class BikeStationService {
   /** 取得附近的 Bike 租借站資料
    *  預設搜尋附近 1公里
    */
-  getBikeStationNearBy(position: { lat: number, lng: number }, keyword?: string, distance = 1000, top?: number): Observable<BikeStation[]> {
+  getBikeStationNearBy(position: { lat: number, lng: number }, keyword: string, distance = 1000, top?: number): Observable<BikeStation[]> {
     let params: any = {
       $format: 'JSON',
 
@@ -64,7 +64,7 @@ export class BikeStationService {
       params['$top'] = top
     }
 
-    if (keyword) {
+    if (keyword !== '') {
       params['$filter'] = `contains(StationName ,'${keyword}')`
     }
 
@@ -72,7 +72,7 @@ export class BikeStationService {
   }
 
   /** 取得 Bike 即時車位資料 */
-  getBikeAvailabilityNearBy(position: { lat: number, lng: number }, distance = 500, keyword?: string) {
+  getBikeAvailabilityNearBy(position: { lat: number, lng: number }, distance = 1000, keyword?: string) {
     let params: any = {
       $format: 'JSON',
       $spatialFilter: `nearby(${position.lat}, ${position.lng}, ${distance})`
