@@ -59,7 +59,9 @@
       </div>
 
       <!-- 手持裝置導航安裝 Google Map 的 app 較方便-->
+      <!-- 正常營運 的租借站才會顯示導航的按鈕 -->
       <a
+        *ngIf="currentSelectInfoWindow.ServiceStatus === 1"
         class="navigation"
         href="https://www.google.com/maps/dir/?api=1&destination={{
           currentSelectInfoWindow?.StationPosition?.lat
