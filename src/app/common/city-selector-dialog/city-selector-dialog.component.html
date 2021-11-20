@@ -1,0 +1,46 @@
+<div mat-dialog-title class="dialogTitle">
+  <h2>請選擇城市</h2>
+  <!-- <h1 class="pointer" mat-dialog-close><i class="fas fa-times"></i></h1> -->
+</div>
+<mat-dialog-content>
+  <mat-radio-group class="cityContainer" [(ngModel)]="selectedCity">
+    <ng-container *ngIf="currentDeviceType === DeviceType.Desktop">
+      <div class="cityGroup" *ngFor="let group of cityGroupList">
+        <div class="cityTitle green pointer">{{ group.groupName }}</div>
+
+        <mat-radio-button
+          class="cityItems"
+          [value]="city"
+          *ngFor="let city of group.citys"
+          >{{ city.zhtw }}</mat-radio-button
+        >
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="currentDeviceType !== DeviceType.Desktop">
+      <div class="cityGroup">
+        <mat-expansion-panel *ngFor="let group of cityGroupList">
+          <mat-expansion-panel-header>
+            <mat-panel-title class="green">
+              {{ group.groupName }}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-radio-button
+            class="cityItems"
+            [value]="city"
+            *ngFor="let city of group.citys"
+            >{{ city.zhtw }}</mat-radio-button
+          >
+        </mat-expansion-panel>
+      </div>
+    </ng-container>
+  </mat-radio-group>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <div class="dialogAction pointer textCenter" (click)="close()">
+    <div class="selectedInfo" *ngIf="selectedCity?.zhtw">
+      目前選擇 ：<span class="blue">{{ selectedCity?.zhtw }}</span>
+    </div>
+    <div class="dismissBtn color7">確定</div>
+  </div>
+</mat-dialog-actions>

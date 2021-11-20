@@ -1,0 +1,58 @@
+.filter {
+  background-color: white;
+  width: 304px;
+  height: 420px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .city {
+    width: 177px;
+    height: 74px;
+    .title {
+      font-weight: bold;
+    }
+    .selector {
+      width: 100px;
+      background-color: lightgray;
+      color: black;
+      cursor: pointer;
+      text-align: center;
+      padding: 10px;
+      border-radius: 6px;
+    }
+  }
+  .distance {
+    width: 214px;
+    height: 157px;
+    .title {
+      font-weight: bold;
+    }
+    .distanceOptionGroup {
+      display: flex;
+      flex-direction: column;
+      .distanceOption {
+        margin: 4px;
+      }
+    }
+  }
+  .order {
+    width: 175px;
+    height: 70px;
+    .title {
+      font-weight: bold;
+    }
+    .orderOption {
+    }
+  }
+  .serach {
+    width: 150px;
+    background-color: lightgray;
+    color: black;
+    cursor: pointer;
+    text-align: center;
+    padding: 10px;
+    border-radius: 6px;
+  }
+}

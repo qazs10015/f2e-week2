@@ -4,7 +4,7 @@
       <a routerLink="/" class="logo">
         <img src="assets/images/logo.png" alt="logo" />
       </a>
-      <div class="deskTopDevice">
+      <div *ngIf="currentDeviceType === DeviceType.Desktop">
         <ul class="menu">
           <li>
             <a
@@ -42,7 +42,7 @@
       </div>
     </div>
   </div>
-  <div class="otherDevice">
+  <div class="mobileDevice" *ngIf="currentDeviceType !== DeviceType.Desktop">
     <ul class="menu">
       <li>
         <a

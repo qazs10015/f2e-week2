@@ -14,18 +14,26 @@ body {
   font-family: "Archivo", sans-serif;
 }
 
+.pointer {
+  cursor: pointer;
+}
+.textLeft {
+  text-align: left;
+}
+.textCenter {
+  text-align: center;
+}
+.textRight {
+  text-align: right;
+}
+
 // PC
 @media only screen and (min-width: 1440px) {
   body {
     font-size: 20px !important;
     line-height: 17px !important;
+
     .navContainer {
-      .deskTopDevice {
-        display: "block" !important;
-      }
-      .otherDevice {
-        display: none !important;
-      }
     }
   }
 }
@@ -35,18 +43,16 @@ body {
   body {
     font-size: 18px !important;
     line-height: 15px !important;
+
     .navContainer {
-      .otherDevice {
-        display: "" !important;
-      }
-      .deskTopDevice {
-        display: none !important;
-      }
     }
     .searchBar {
       input {
         width: 220px !important;
       }
+    }
+    .cityContainer {
+      flex-direction: column;
     }
   }
 }
@@ -56,18 +62,16 @@ body {
   body {
     font-size: 18px !important;
     line-height: 15px !important;
+
     .navContainer {
-      .otherDevice {
-        display: "" !important;
-      }
-      .deskTopDevice {
-        display: none !important;
-      }
     }
     .searchBar {
       input {
         width: 220px !important;
       }
+    }
+    .cityContainer {
+      flex-direction: column;
     }
   }
 }
@@ -77,18 +81,16 @@ body {
   body {
     font-size: 18px !important;
     line-height: 15px !important;
+
     .navContainer {
-      .otherDevice {
-        display: "" !important;
-      }
-      .deskTopDevice {
-        display: none !important;
-      }
     }
     .searchBar {
       input {
         width: 220px !important;
       }
+    }
+    .cityContainer {
+      flex-direction: column;
     }
   }
 }
@@ -98,13 +100,8 @@ body {
   body {
     font-size: 14px !important;
     line-height: 13px !important;
+
     .navContainer {
-      .otherDevice {
-        display: "" !important;
-      }
-      .deskTopDevice {
-        display: none !important;
-      }
     }
     .searchBar {
       input {
@@ -121,6 +118,9 @@ body {
           color: #ffffff;
         }
       }
+    }
+    .cityContainer {
+      flex-direction: column;
     }
   }
 }

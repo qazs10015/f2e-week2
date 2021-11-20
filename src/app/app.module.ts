@@ -13,6 +13,7 @@ import { ScenicSpotComponent } from './scenic-spot/scenic-spot.component';
 import { BikeLineComponent } from './bike-line/bike-line.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
+import { CitySelectorDialogComponent } from './common/city-selector-dialog/city-selector-dialog.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
     NavComponent,
     BikeStationComponent,
     ScenicSpotComponent,
-    BikeLineComponent
+    BikeLineComponent,
+    CitySelectorDialogComponent
   ],
   imports: [
     BrowserModule,

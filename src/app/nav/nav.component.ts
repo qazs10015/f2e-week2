@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DeviceDetectorService, DeviceType } from 'ngx-device-detector';
 
 @Component({
   selector: 'app-nav',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavComponent implements OnInit {
 
-  constructor() { }
+
+  DeviceType = DeviceType;
+  currentDeviceType = '';
+
+  constructor(private deviceDetectorService: DeviceDetectorService) { }
 
   ngOnInit(): void {
+    this.currentDeviceType = this.deviceDetectorService.getDeviceInfo().deviceType;
   }
 
 }

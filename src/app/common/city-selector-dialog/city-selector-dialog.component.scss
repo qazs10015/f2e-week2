@@ -1,0 +1,37 @@
+.dialogTitle {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5px;
+}
+.cityContainer {
+  height: 55vh;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 30px;
+  font-size: 16px;
+  .cityGroup {
+    display: flex;
+    flex-direction: column;
+    .cityTitle {
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    .cityItems {
+      margin: 10px;
+    }
+  }
+}
+.dialogAction {
+  width: 100%;
+
+  .selectedInfo {
+    margin: 18px 0;
+  }
+  .dismissBtn {
+    width: 120px;
+    display: inline-block;
+    background-color: #f25c54;
+    border-radius: 10px;
+    padding: 10px;
+  }
+}
