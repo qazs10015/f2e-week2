@@ -24,7 +24,7 @@
         
       ![image](https://user-images.githubusercontent.com/30744341/142015006-b5d26232-2e88-46ca-b21b-ae2d998a3ca4.png)
 1. [啟用 Google API](https://console.cloud.google.com/apis/library)
-    > 本專案使用 Map JavaScript API
+    > 本專案使用 Maps JavaScript API
 
       ![image](https://user-images.githubusercontent.com/30744341/142015958-18657167-a882-4e7f-b75b-b76399a20d04.png)
   
