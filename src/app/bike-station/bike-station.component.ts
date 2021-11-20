@@ -96,7 +96,7 @@ export class BikeStationComponent implements OnInit {
   ];
 
   /** 地圖縮放比例 */
-  zoom = 16;
+  zoom = 15;
 
 
   constructor(private snackBar: MatSnackBar, private locationService: LocationService, private bikeStationService: BikeStationService) { }
