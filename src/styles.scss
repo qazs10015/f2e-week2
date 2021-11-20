@@ -19,6 +19,14 @@ body {
   body {
     font-size: 20px !important;
     line-height: 17px !important;
+    .navContainer {
+      .deskTopDevice {
+        display: "block" !important;
+      }
+      .otherDevice {
+        display: none !important;
+      }
+    }
   }
 }
 
@@ -27,8 +35,13 @@ body {
   body {
     font-size: 18px !important;
     line-height: 15px !important;
-    .nav .menu {
-      display: none !important;
+    .navContainer {
+      .otherDevice {
+        display: "" !important;
+      }
+      .deskTopDevice {
+        display: none !important;
+      }
     }
     .searchBar {
       input {
@@ -43,8 +56,13 @@ body {
   body {
     font-size: 18px !important;
     line-height: 15px !important;
-    .nav .menu {
-      display: none !important;
+    .navContainer {
+      .otherDevice {
+        display: "" !important;
+      }
+      .deskTopDevice {
+        display: none !important;
+      }
     }
     .searchBar {
       input {
@@ -59,8 +77,13 @@ body {
   body {
     font-size: 18px !important;
     line-height: 15px !important;
-    .nav .menu {
-      display: none !important;
+    .navContainer {
+      .otherDevice {
+        display: "" !important;
+      }
+      .deskTopDevice {
+        display: none !important;
+      }
     }
     .searchBar {
       input {
@@ -75,8 +98,13 @@ body {
   body {
     font-size: 14px !important;
     line-height: 13px !important;
-    .nav .menu {
-      display: none !important;
+    .navContainer {
+      .otherDevice {
+        display: "" !important;
+      }
+      .deskTopDevice {
+        display: none !important;
+      }
     }
     .searchBar {
       input {

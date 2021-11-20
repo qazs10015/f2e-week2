@@ -1,19 +1,14 @@
-.nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 40px;
-  .basicInfo {
-    display: flex;
-  }
+.navContainer {
+  // 選單
   .menu {
     display: flex;
     margin: 0;
     list-style: none;
     justify-content: space-between;
     li {
-      padding: 10px;
-      text-align: right;
+      padding: 0 10px;
+      text-align: center;
+      min-width: 160px;
       a {
         text-decoration: none;
       }
@@ -25,13 +20,33 @@
       }
     }
   }
-  .weatherInfo {
+
+  // mobile、tablet、unknow
+  .otherDevice {
+    background-color: #f25c54;
+
+    margin: 0;
+    padding: 20px 40px;
+    overflow-x: auto;
+  }
+
+  .nav {
     display: flex;
-    .weatherInfoItem {
-      width: 80px;
-      text-align: right;
-      i {
-        margin: 0 3px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    .basicInfo {
+      display: flex;
+    }
+
+    .weatherInfo {
+      display: flex;
+      .weatherInfoItem {
+        width: 80px;
+        text-align: right;
+        i {
+          margin: 0 3px;
+        }
       }
     }
   }
