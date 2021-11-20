@@ -8,6 +8,7 @@ import { map, pairwise, switchMap } from 'rxjs/operators';
 import { BikeStation } from '../models/bike-station.model';
 import { MapInfoWindow, MapMarker } from '@angular/google-maps';
 import { BikeAvailability } from '../models/bike-availability.model';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 interface customInfoWindow {
   StationUID: string;
@@ -35,9 +36,6 @@ export class BikeStationComponent implements OnInit {
 
   /** 關鍵字 */
   keyword = '';
-
-  /** 自動完成的選項 */
-  autoCompleteOptions: string[] = ['附近 Youbike 租借站'];
 
   /** Bike 租借站的 marker */
   markerOptions: google.maps.MarkerOptions = { draggable: false, animation: google.maps.Animation.DROP, };
@@ -101,40 +99,47 @@ export class BikeStationComponent implements OnInit {
   zoom = 16;
 
 
-  constructor(private locationService: LocationService, private bikeStationService: BikeStationService) { }
+  constructor(private snackBar: MatSnackBar, private locationService: LocationService, private bikeStationService: BikeStationService) { }
 
   async ngOnInit() {
     this.currentPosition = await this.locationService.getPosition();
+
+
   }
 
   async search() {
     // 每次搜尋前重新抓一次目前座標
     this.currentPosition = await this.locationService.getPosition();
 
-    let obs;
-
-    // 空值或是模糊符合預設選項的字串就搜附近的
-    const _keyWord = (this.autoCompleteOptions[0].replace(/\ /gm, '').indexOf(this.keyword) > -1) ? '' : this.keyword;
+    // 空值就搜尋附近指定範圍的所有資料
+    const _keyWord = this.keyword ?? '';
 
     // 取出附近租借站資料
-    obs = forkJoin([this.bikeStationService.getBikeStationNearBy(this.currentPosition, _keyWord), this.bikeStationService.getBikeAvailabilityNearBy(this.currentPosition)]);
+    let obs = forkJoin([this.bikeStationService.getBikeStationNearBy(this.currentPosition, _keyWord), this.bikeStationService.getBikeAvailabilityNearBy(this.currentPosition)]);
 
     obs.subscribe((val: any[]) => {
       const stations = val[0] as BikeStation[];
       const availability = val[1] as BikeAvailability[];
-      this.markerPositions =
-        stations.map(item => ({ lat: item.StationPosition.PositionLat, lng: item.StationPosition.PositionLon }));
+
+      if (stations.length === 0) {
+        const ref = this.snackBar.open('附近目前沒有可以租借車輛的租借站');
+        ref._dismissAfter(2500)
+      } else {
+        this.markerPositions =
+          stations.map(item => ({ lat: item.StationPosition.PositionLat, lng: item.StationPosition.PositionLon }));
+
+        // 重新組合租借站資料
+        this.lstBikeStationInfo = stations.map(station => availability.filter(val => val.StationUID === station.StationUID).map(val => ({
+          StationUID: val.StationUID,
+          StationName: station.StationName.Zh_tw,
+          ServiceStatus: val.ServiceStatus,
+          AvailableRentBikes: val.AvailableRentBikes,
+          AvailableReturnBikes: val.AvailableReturnBikes,
+          StationPosition: { lat: station.StationPosition.PositionLat, lng: station.StationPosition.PositionLon }
+        }))[0]);
+      }
 
 
-      // 重新組合租借站資料
-      this.lstBikeStationInfo = stations.map(station => availability.filter(val => val.StationUID === station.StationUID).map(val => ({
-        StationUID: val.StationUID,
-        StationName: station.StationName.Zh_tw,
-        ServiceStatus: val.ServiceStatus,
-        AvailableRentBikes: val.AvailableRentBikes,
-        AvailableReturnBikes: val.AvailableReturnBikes,
-        StationPosition: { lat: station.StationPosition.PositionLat, lng: station.StationPosition.PositionLon }
-      }))[0])
     });
   }
 

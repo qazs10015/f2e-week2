@@ -61,11 +61,12 @@ export class BikeStationService {
     }
 
     if (top) {
-      params['$top'] = top
+      params['$top'] = top;
     }
 
     if (keyword !== '') {
-      params['$filter'] = `contains(StationName ,'${keyword}')`
+      // 子屬性用 / 標示
+      params['$filter'] = `contains(StationName/Zh_tw,'${keyword}') or contains(StationName/En,'${keyword}')`;
     }
 
     return this.http.get<BikeStation[]>(this.api + 'Station/NearBy', { params: params });

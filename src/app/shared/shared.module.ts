@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatInputModule } from '@angular/material/input';
-
-const materialModules = [MatAutocompleteModule, MatInputModule]
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+const materialModules = [MatAutocompleteModule, MatInputModule, MatSnackBarModule]
 const thirdModules = [GoogleMapsModule]
 
 @NgModule({

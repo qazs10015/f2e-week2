@@ -3,23 +3,11 @@
     matInput
     type="text"
     placeholder="搜尋 Youbike 租借站"
-    class="color1"
-    [matAutocomplete]="auto"
     [(ngModel)]="keyword"
+    (keyup.enter)="search()"
   />
   <a (click)="search()"><i class="fas fa-search"></i></a>
 </div>
-<mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-  <mat-option
-    *ngFor="let option of autoCompleteOptions"
-    [value]="autoCompleteOptions"
-  >
-    <div class="autoCompleteOption color1">
-      <i class="fas fa-location-arrow"></i>{{ option }}
-    </div>
-  </mat-option>
-</mat-autocomplete>
-
 <google-map
   class="map"
   height="100%"
@@ -69,7 +57,17 @@
           空位：{{ currentSelectInfoWindow?.AvailableReturnBikes }}
         </div>
       </div>
+      <a
+        class="navigation"
+        href="https://www.google.com/maps/dir/?api=1&destination={{
+          currentSelectInfoWindow?.StationPosition?.lat
+        }},{{ currentSelectInfoWindow?.StationPosition?.lng }}"
+        target="_blank"
+        >開始導航</a
+      >
     </div>
   </map-info-window>
   <map-polyline [options]="polyOptions" [path]="polyPath"></map-polyline>
 </google-map>
+
+<button mat-stroked-button></button>
