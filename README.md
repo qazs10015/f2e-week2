@@ -7,7 +7,7 @@
 
  其他套件：[Angualr Material](https://material.angular.io/)、[Angular GoogleMap](https://github.com/angular/components/tree/master/src/google-maps)、[ngx-pagination](https://www.npmjs.com/package/ngx-pagination)、[jssha(加密套件)](https://github.com/Caligatio/jsSHA)、[ngx-device-detector](https://github.com/KoderLabs/ngx-device-detector#readme)
  
- 補充：[HTML <a> 標籤使用 googleMap 較常見的使用方式](https://gearside.com/easily-link-to-locations-and-directions-using-the-new-google-maps/)
+ 補充：[HTML `<a>` 標籤使用 googleMap 較常見的使用方式](https://gearside.com/easily-link-to-locations-and-directions-using-the-new-google-maps/)
 
 ## UI組設計師資料
 
