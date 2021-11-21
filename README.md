@@ -6,8 +6,6 @@
 開發框架： Angular
 
  其他套件：[Angualr Material](https://material.angular.io/)、[Angular GoogleMap](https://github.com/angular/components/tree/master/src/google-maps)、[ngx-pagination](https://www.npmjs.com/package/ngx-pagination)、[jssha(加密套件)](https://github.com/Caligatio/jsSHA)、[ngx-device-detector](https://github.com/KoderLabs/ngx-device-detector#readme)
- 
- 補充：[HTML `<a>` 標籤使用 googleMap 較常見的使用方式](https://gearside.com/easily-link-to-locations-and-directions-using-the-new-google-maps/)
 
 ## UI組設計師資料
 
@@ -44,6 +42,7 @@
 1. [Angular 如何整合 Google Maps 設定篇](https://medium.com/jason-read-code/angular-%E5%A6%82%E4%BD%95%E6%95%B4%E5%90%88-google-maps-%E8%A8%AD%E5%AE%9A%E7%AF%87-1a83290ef71b)
 1. [Google Maps is now an Angular component](https://timdeschryver.dev/blog/google-maps-as-an-angular-component)
 1. [(未實作)運用Google Map API(Distance Matrix Service)取得旅程時間及距離](https://icelandcheng.medium.com/%E9%81%8B%E7%94%A8google-map-api-distance-matrix-service-%E5%8F%96%E5%BE%97%E6%97%85%E7%A8%8B%E6%99%82%E9%96%93%E5%8F%8A%E8%B7%9D%E9%9B%A2-4e7c9b929e9e)
+1. [HTML `<a>` 標籤使用 googleMap 較常見的使用方式](https://gearside.com/easily-link-to-locations-and-directions-using-the-new-google-maps/)
 
     
 
