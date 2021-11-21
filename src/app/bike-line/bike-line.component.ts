@@ -75,7 +75,7 @@ export class BikeLineComponent implements OnInit {
     const config: MatDialogConfig = {
       data: this.selectedCity,
       width: '70vw',
-      height: '70vh',
+      height: '80vh',
       disableClose: true
     };
     const ref = this.matDialog.open(CitySelectorDialogComponent, config);
@@ -87,8 +87,9 @@ export class BikeLineComponent implements OnInit {
   openMapDetailDialog(item: BikeShape) {
     const config: MatDialogConfig = {
       data: item.Geometry,
-      width: '70vw',
-      height: '80vh'
+      width: '90vw',
+      height: '80vh',
+      maxWidth: '90vw'
     }
     this.matDialog.open(BikeLineInfoComponent, config);
   }
