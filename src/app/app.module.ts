@@ -15,7 +15,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
 import { CitySelectorDialogComponent } from './common/city-selector-dialog/city-selector-dialog.component';
 import { BikeLineInfoComponent } from './common/bike-line-info/bike-line-info.component';
-import { CustomGoogleMapComponent } from './bike-station/custom-google-map/custom-google-map.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +25,6 @@ import { CustomGoogleMapComponent } from './bike-station/custom-google-map/custo
     BikeLineComponent,
     CitySelectorDialogComponent,
     BikeLineInfoComponent,
-    CustomGoogleMapComponent
   ],
   imports: [
     BrowserModule,

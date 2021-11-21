@@ -1,28 +1,51 @@
-<div *ngIf="apiLoaded | async">
-  <google-map
-    class="map"
-    height="100%"
-    width="100%"
-    [zoom]="zoom"
-    [center]="startPosition"
-    [options]="googleMapOptions"
-  >
-    <!-- 起點的位置 -->
-    <map-marker
-      #marker="mapMarker"
-      [position]="startPosition"
-      [options]="markerOptions"
-      [icon]="startIcon"
-    ></map-marker>
-
-    <!-- 終點的位置 -->
-    <map-marker
-      #marker="mapMarker"
-      [position]="endPosition"
-      [options]="markerOptions"
-      [icon]="endIcon"
-    ></map-marker>
-
-    <map-polyline [options]="polyOptions" [path]="polyPath"></map-polyline>
-  </google-map>
+<div mat-dialog-title class="dialogTitle">
+  <h1>路線資訊</h1>
+  <h1 class="pointer" mat-dialog-close><i class="fas fa-times"></i></h1>
 </div>
+<mat-dialog-content>
+  <div class="mapDetail" *ngIf="apiLoaded | async">
+    <google-map
+      class="map"
+      height="50vh"
+      width="60vw"
+      [zoom]="zoom"
+      [center]="startPosition"
+      [options]="googleMapOptions"
+    >
+      <!-- 起點的位置 -->
+      <map-marker
+        #marker="mapMarker"
+        [position]="startPosition"
+        [options]="markerOptions"
+        [icon]="startIcon"
+      ></map-marker>
+
+      <!-- 終點的位置 -->
+      <map-marker
+        #marker="mapMarker"
+        [position]="endPosition"
+        [options]="markerOptions"
+        [icon]="endIcon"
+      ></map-marker>
+
+      <map-polyline [options]="polyOptions" [path]="polyPath"></map-polyline>
+    </google-map>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <div class="startDirectionContainer">
+    <a
+      href="https://www.google.com/maps/dir/?api=1&destination={{
+        startPosition.lat
+      }},{{ startPosition.lng }}
+    "
+      target="_blank"
+      class="startDirection color7"
+      >開始導航</a
+    >
+    <div>
+      此導航為 <span class="red">目前位置</span> 到
+      <span class="green">起點</span>
+    </div>
+  </div>
+</mat-dialog-actions>

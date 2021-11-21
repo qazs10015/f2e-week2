@@ -81,36 +81,13 @@ export class BikeLineComponent implements OnInit {
     });
   }
 
-  openDialog(item: BikeShape) {
-
-    const infoList: string[] = item.Geometry.replace('MULTILINESTRING ', '').replace(/\(+/gm, '').replace(/\)+/gm, '').split(',');
-
-    // 起始點
-    const start_lat = infoList[0].split(' ')[1];
-    const start_lng = infoList[0].split(' ')[0];
-
-    // 終點
-    const end_lat = infoList[infoList.length - 1].split(' ')[1];
-    const end_lng = infoList[infoList.length - 1].split(' ')[0];
-
-    window.open(`https://www.google.com/maps/dir/${start_lat},${start_lng}/${end_lat},${end_lng}`, '_blank');
-
-    //     <a
-    //         * ngIf="currentSelectInfoWindow.ServiceStatus === 1"
-    //     class="navigation"
-    //     href = "https://www.google.com/maps/dir/?api=1&destination={{
-    //     currentSelectInfoWindow?.StationPosition?.lat
-    //   }
-    // }, { { currentSelectInfoWindow?.StationPosition?.lng } } "
-    // target = "_blank"
-    //   > 開始導航 < /a
-    //   >
-    // const config: MatDialogConfig = {
-    //   data: item.Geometry,
-    //   width: '70vw',
-    //   height: '70vh'
-    // }
-    // this.matDialog.open(BikeLineInfoComponent, config);
+  openMapDetailDialog(item: BikeShape) {
+    const config: MatDialogConfig = {
+      data: item.Geometry,
+      width: '70vw',
+      height: '75vh'
+    }
+    this.matDialog.open(BikeLineInfoComponent, config);
   }
   async search() {
     if (!this.selectedCity?.zhtw) {

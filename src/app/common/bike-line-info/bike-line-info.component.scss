@@ -1,0 +1,28 @@
+.dialogTitle {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5px;
+}
+.mapDetail {
+  display: flex;
+  justify-content: center;
+}
+.startDirectionContainer {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .startDirection {
+    margin: 10px 0;
+    border-radius: 10px;
+    padding: 20px;
+    display: block;
+    text-decoration: none;
+    background-color: #f25c54;
+  }
+}
+
+.mat-dialog-actions {
+  justify-content: center;
+}

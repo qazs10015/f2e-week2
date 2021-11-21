@@ -51,7 +51,6 @@ export class BikeStationService {
       params['$filter'] = distance;
     }
     if (orderby !== '') {
-      debugger
       params['$orderby'] = orderby;
     }
     return this.http.get<BikeShape[]>(this.cyclingApi + city, { params: params }).toPromise();

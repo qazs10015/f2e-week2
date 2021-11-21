@@ -71,14 +71,6 @@ export class BikeStationComponent implements OnInit {
 
   currentSelectInfoWindow: customInfoWindow = {} as customInfoWindow;
 
-  // polyPath: google.maps.LatLngLiteral[] = [
-  //   { lat: 25.03280092118552, lng: 121.56348748779168 },
-  //   { lat: 25.03587797931996, lng: 121.56351157458673 },
-  //   { lat: 25.03583432131525, lng: 121.56543846794476 },
-  //   { lat: 25.033019138809674, lng: 121.56546250540032 },
-  //   { lat: 25.033062791203154, lng: 121.56201826717597 },
-  // ];
-
   constructor(
     private locationService: LocationService,
     private snackBar: MatSnackBar,
