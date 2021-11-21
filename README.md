@@ -26,9 +26,11 @@
         
       ![image](https://user-images.githubusercontent.com/30744341/142015006-b5d26232-2e88-46ca-b21b-ae2d998a3ca4.png)
 1. [啟用 Google API](https://console.cloud.google.com/apis/library)
-    > 本專案使用 Maps JavaScript API
+    > 本專案使用 Maps JavaScript API、Distance Matrix API
 
       ![image](https://user-images.githubusercontent.com/30744341/142015958-18657167-a882-4e7f-b75b-b76399a20d04.png)
+      ![image](https://user-images.githubusercontent.com/30744341/142748796-44c89955-15dd-4a24-a7b4-cd0b22b7742f.png)
+
   
 1. 在專案中使用 GoogleMap 可以參考：[Angular GoogleMap](https://github.com/angular/components/tree/master/src/google-maps)、[Angular 如何整合 Google Maps 設定篇](https://medium.com/jason-read-code/angular-%E5%A6%82%E4%BD%95%E6%95%B4%E5%90%88-google-maps-%E8%A8%AD%E5%AE%9A%E7%AF%87-1a83290ef71b)、[Google Maps is now an Angular component](https://timdeschryver.dev/blog/google-maps-as-an-angular-component)
 
