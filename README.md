@@ -16,7 +16,7 @@
 ## 網站簡介
 
 
-## GoogleMap 申請流程 
+## GoogleMap 申請流程與本專案的使用方式
 > Google API　需要申請付費帳號(Billing Account)才能正常使用，申請成功後會提供300美金額度使用
 
 1. [初次使用可以先看簡介影片](https://youtu.be/2_HZObVbe-g)
