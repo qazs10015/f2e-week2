@@ -14,7 +14,8 @@
 [zoe](https://2021.thef2e.com/users/6296432819610583695?week=2&type=1)、[figma 設計稿](https://www.figma.com/file/zmcW9WenYEJubgYIY4Usqo/Week2---%E8%87%AA%E8%A1%8C%E8%BB%8A%E9%81%93%E5%9C%B0%E5%9C%96%E8%B3%87%E8%A8%8A%E6%95%B4%E5%90%88%E7%B6%B2?node-id=13%3A27)
 
 ## 網站簡介
-
+此網站**大部分**依照設計稿設計且支援 RWD，部分 UI 因操作時有可能擋住地圖，所以調整位置
+設計稿中的 **美食/景點** 功能在此專案中未實作，因為這個功能已在第一週的專案中做過了所以暫無打算做同樣的功能
 
 ## GoogleMap 申請流程
 > Google API　需要申請付費帳號(Billing Account)才能正常使用，申請成功後會提供300美金額度使用
