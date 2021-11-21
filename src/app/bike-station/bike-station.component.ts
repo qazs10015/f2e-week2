@@ -3,12 +3,15 @@
 import { BikeStationService } from './../services/bike-station.service';
 import { LocationService } from './../services/location.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { forkJoin, Observable } from 'rxjs';
-import { map, pairwise, switchMap } from 'rxjs/operators';
+import { forkJoin, Observable, of } from 'rxjs';
+import { catchError, map, pairwise, switchMap, tap } from 'rxjs/operators';
 import { BikeStation } from '../models/bike-station.model';
 import { MapInfoWindow, MapMarker } from '@angular/google-maps';
 import { BikeAvailability } from '../models/bike-availability.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
+
 
 interface customInfoWindow {
   StationUID: string;
@@ -26,7 +29,7 @@ interface customInfoWindow {
 })
 export class BikeStationComponent implements OnInit {
 
-  @ViewChild(MapInfoWindow) infoWindow!: MapInfoWindow;
+  apiLoaded: Observable<boolean>;
 
   /** 暫停營運或停止營運的 icon */
   disableIcon = 'assets/icons/grayMarker.png';
@@ -34,77 +37,64 @@ export class BikeStationComponent implements OnInit {
   /** 自己位置的 icon */
   private selfIcon = 'assets/icons/marker.png';
 
-  /** 關鍵字 */
-  keyword = '';
 
   /** Bike 租借站的 marker */
-  markerOptions: google.maps.MarkerOptions = { draggable: false, animation: google.maps.Animation.DROP, };
-
+  markerOptions = {} as google.maps.MarkerOptions;
 
 
   /** 自己位置的 marker */
-  currentMarkerPositionOption: google.maps.MarkerOptions = {
-    title: '你的位置',
-    draggable: false,
-    icon: this.selfIcon,
-    animation: google.maps.Animation.BOUNCE,
-    clickable: true
-  }
-
-  /** 目前位置的經緯度 */
-  currentPosition: google.maps.LatLngLiteral = { lat: 0, lng: 0 };
-
+  currentMarkerPositionOption = {} as google.maps.MarkerOptions;
 
   /** 所有 Bike 租借站的經緯度 */
   markerPositions: google.maps.LatLngLiteral[] = [];
 
+  /** 目前位置的經緯度 */
+  currentPosition: google.maps.LatLngLiteral = { lat: 0, lng: 0 };
 
-  /** googleMap 的參數 */
-  googleMapOptions: google.maps.MapOptions = {
-    disableDefaultUI: true,
-    clickableIcons: true,
-    disableDoubleClickZoom: true,
-    draggable: true,
-    zoomControl: true,
-  };
+  @ViewChild(MapInfoWindow) infoWindow!: MapInfoWindow;
+
+
+  /** 關鍵字 */
+  keyword = '';
+
+  googleMapOptions = {} as google.maps.MapOptions;
+
 
   /** 圖資 */
-  polyOptions: google.maps.PolylineOptions = {
-    strokeColor: '#40809d',
-    strokeOpacity: 1,
-    strokeWeight: 10,
-    icons: [
-      {
-        icon: {
-          path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
-        },
-        offset: '100%',
-      },
-    ],
-  };
+  polyOptions = {} as google.maps.PolylineOptions;
+
+
+  /** 地圖縮放比例 */
+  zoom = 15;
 
   lstBikeStationInfo: customInfoWindow[] = [];
 
   currentSelectInfoWindow: customInfoWindow = {} as customInfoWindow;
 
-  polyPath: google.maps.LatLngLiteral[] = [
-    { lat: 25.03280092118552, lng: 121.56348748779168 },
-    { lat: 25.03587797931996, lng: 121.56351157458673 },
-    { lat: 25.03583432131525, lng: 121.56543846794476 },
-    { lat: 25.033019138809674, lng: 121.56546250540032 },
-    { lat: 25.033062791203154, lng: 121.56201826717597 },
-  ];
+  // polyPath: google.maps.LatLngLiteral[] = [
+  //   { lat: 25.03280092118552, lng: 121.56348748779168 },
+  //   { lat: 25.03587797931996, lng: 121.56351157458673 },
+  //   { lat: 25.03583432131525, lng: 121.56543846794476 },
+  //   { lat: 25.033019138809674, lng: 121.56546250540032 },
+  //   { lat: 25.033062791203154, lng: 121.56201826717597 },
+  // ];
 
-  /** 地圖縮放比例 */
-  zoom = 15;
+  constructor(
+    private locationService: LocationService,
+    private snackBar: MatSnackBar,
+    private bikeStationService: BikeStationService,
+    private httpClient: HttpClient) {
 
-
-  constructor(private snackBar: MatSnackBar, private locationService: LocationService, private bikeStationService: BikeStationService) { }
+    this.apiLoaded = this.httpClient.jsonp(environment.googleMap, 'callback')
+      .pipe(
+        tap(() => { this.loadGoogleMapConfig(); }),
+        map(() => true),
+        catchError(() => of(false)),
+      );
+  }
 
   async ngOnInit() {
     this.currentPosition = await this.locationService.getPosition();
-
-
   }
 
   async search() {
@@ -138,8 +128,6 @@ export class BikeStationComponent implements OnInit {
           StationPosition: { lat: station.StationPosition.PositionLat, lng: station.StationPosition.PositionLon }
         }))[0]);
       }
-
-
     });
   }
 
@@ -150,6 +138,40 @@ export class BikeStationComponent implements OnInit {
       item.StationPosition.lng === position.lng)!;
 
     this.infoWindow.open(marker);
+  }
+
+  private loadGoogleMapConfig() {
+    this.markerOptions = { draggable: false, animation: google.maps.Animation.DROP };
+
+    this.currentMarkerPositionOption = {
+      title: '你的位置',
+      draggable: false,
+      icon: this.selfIcon,
+      animation: google.maps.Animation.BOUNCE,
+      clickable: true
+    };
+
+    this.googleMapOptions = {
+      disableDefaultUI: true,
+      clickableIcons: true,
+      disableDoubleClickZoom: true,
+      draggable: true,
+      zoomControl: true,
+    };
+
+    this.polyOptions = {
+      strokeColor: '#40809d',
+      strokeOpacity: 1,
+      strokeWeight: 10,
+      icons: [
+        {
+          icon: {
+            path: 3,
+          },
+          offset: '100%',
+        },
+      ],
+    }
   }
 
 }

@@ -8,70 +8,73 @@
   />
   <a (click)="search()"><i class="fas fa-search"></i></a>
 </div>
-<google-map
-  class="map"
-  height="100%"
-  width="100%"
-  [zoom]="zoom"
-  [center]="currentPosition"
-  [options]="googleMapOptions"
->
-  <!-- 自己的位置 -->
-  <map-marker
-    [position]="currentPosition"
-    [options]="currentMarkerPositionOption"
-  ></map-marker>
+<div *ngIf="apiLoaded | async">
+  <!-- <app-custom-google-map></app-custom-google-map> -->
+  <google-map
+    class="map"
+    height="100vh"
+    width="100vw"
+    [zoom]="zoom"
+    [center]="currentPosition"
+    [options]="googleMapOptions"
+  >
+    <!-- 自己的位置 -->
+    <map-marker
+      [position]="currentPosition"
+      [options]="currentMarkerPositionOption"
+    ></map-marker>
 
-  <!-- 租借站的位置 -->
-  <map-marker
-    #marker="mapMarker"
-    *ngFor="let item of lstBikeStationInfo"
-    [position]="item.StationPosition"
-    [options]="markerOptions"
-    [icon]="item.ServiceStatus === 1 ? '' : disableIcon"
-    (mapClick)="openInfoWindow(marker, item.StationPosition)"
-  ></map-marker>
+    <!-- 租借站的位置 -->
+    <map-marker
+      #marker="mapMarker"
+      *ngFor="let item of lstBikeStationInfo"
+      [position]="item.StationPosition"
+      [options]="markerOptions"
+      [icon]="item.ServiceStatus === 1 ? '' : disableIcon"
+      (mapClick)="openInfoWindow(marker, item.StationPosition)"
+    ></map-marker>
 
-  <map-info-window>
-    <div class="googleInfoWindow">
-      <div class="title blue">
-        <ng-container [ngSwitch]="currentSelectInfoWindow.ServiceStatus">
-          <div *ngSwitchCase="0" class="status gray">停止營運</div>
-          <div *ngSwitchCase="2" class="status gray">暫停營運</div>
-          <div *ngSwitchCase="1" class="status green">正常營運</div>
-        </ng-container>
-        {{ currentSelectInfoWindow?.StationName }}
-      </div>
-
-      <div class="info">
-        <div
-          [ngClass]="{ red: currentSelectInfoWindow?.AvailableRentBikes === 0 }"
-        >
-          可借：{{ currentSelectInfoWindow?.AvailableRentBikes }}
+    <map-info-window>
+      <div class="googleInfoWindow">
+        <div class="title blue">
+          <ng-container [ngSwitch]="currentSelectInfoWindow.ServiceStatus">
+            <div *ngSwitchCase="0" class="status gray">停止營運</div>
+            <div *ngSwitchCase="2" class="status gray">暫停營運</div>
+            <div *ngSwitchCase="1" class="status green">正常營運</div>
+          </ng-container>
+          {{ currentSelectInfoWindow?.StationName }}
         </div>
-        <div
-          [ngClass]="{
-            red: currentSelectInfoWindow?.AvailableReturnBikes === 0
-          }"
-        >
-          空位：{{ currentSelectInfoWindow?.AvailableReturnBikes }}
+
+        <div class="info">
+          <div
+            [ngClass]="{
+              red: currentSelectInfoWindow?.AvailableRentBikes === 0
+            }"
+          >
+            可借：{{ currentSelectInfoWindow?.AvailableRentBikes }}
+          </div>
+          <div
+            [ngClass]="{
+              red: currentSelectInfoWindow?.AvailableReturnBikes === 0
+            }"
+          >
+            空位：{{ currentSelectInfoWindow?.AvailableReturnBikes }}
+          </div>
         </div>
+
+        <!-- 手持裝置導航安裝 Google Map 的 app 較方便-->
+        <!-- 正常營運 的租借站才會顯示導航的按鈕 -->
+        <a
+          *ngIf="currentSelectInfoWindow.ServiceStatus === 1"
+          class="navigation"
+          href="https://www.google.com/maps/dir/?api=1&destination={{
+            currentSelectInfoWindow?.StationPosition?.lat
+          }},{{ currentSelectInfoWindow?.StationPosition?.lng }}"
+          target="_blank"
+          >開始導航</a
+        >
       </div>
-
-      <!-- 手持裝置導航安裝 Google Map 的 app 較方便-->
-      <!-- 正常營運 的租借站才會顯示導航的按鈕 -->
-      <a
-        *ngIf="currentSelectInfoWindow.ServiceStatus === 1"
-        class="navigation"
-        href="https://www.google.com/maps/dir/?api=1&destination={{
-          currentSelectInfoWindow?.StationPosition?.lat
-        }},{{ currentSelectInfoWindow?.StationPosition?.lng }}"
-        target="_blank"
-        >開始導航</a
-      >
-    </div>
-  </map-info-window>
-  <map-polyline [options]="polyOptions" [path]="polyPath"></map-polyline>
-</google-map>
-
-<button mat-stroked-button></button>
+    </map-info-window>
+    <!-- <map-polyline [options]="polyOptions" [path]="polyPath"></map-polyline> -->
+  </google-map>
+</div>
