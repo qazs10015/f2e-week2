@@ -4,19 +4,20 @@
 </div>
 <mat-dialog-content (keyup.enter)="close()">
   <mat-radio-group class="cityContainer" [(ngModel)]="selectedCity">
+    <!-- PC版本 -->
     <ng-container *ngIf="currentDeviceType === DeviceType.Desktop">
       <div class="cityGroup" *ngFor="let group of cityGroupList">
         <div class="cityTitle green pointer">{{ group.groupName }}</div>
 
-        <mat-radio-button
-          class="cityItems"
-          [value]="city"
-          *ngFor="let city of group.citys"
-          >{{ city.zhtw }}</mat-radio-button
-        >
+        <ng-container *ngFor="let city of group.citys">
+          <mat-radio-button class="cityItems" [value]="city" #rdb
+            >{{ city.zhtw }}
+          </mat-radio-button>
+        </ng-container>
       </div>
     </ng-container>
 
+    <!-- mobile、tablet版本 -->
     <ng-container *ngIf="currentDeviceType !== DeviceType.Desktop">
       <div class="cityGroup">
         <mat-expansion-panel *ngFor="let group of cityGroupList">
@@ -37,12 +38,12 @@
   </mat-radio-group>
 </mat-dialog-content>
 <mat-dialog-actions>
-  <div class="dialogAction pointer textCenter" (click)="close()">
+  <div class="dialogAction pointer textCenter">
     <div class="selectedInfo">
       <span *ngIf="selectedCity?.zhtw">
         目前選擇 ：<span class="blue">{{ selectedCity?.zhtw }}</span>
       </span>
     </div>
-    <div class="dismissBtn color7">確定</div>
+    <div class="dismissBtn color7" (click)="close()">確定</div>
   </div>
 </mat-dialog-actions>

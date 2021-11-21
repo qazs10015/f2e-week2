@@ -36,7 +36,7 @@ export class BikeLineComponent implements OnInit {
     }];
 
   orderOptions = [
-    { key: '距離我最近', value: '' },
+    // { key: '距離我最近', value: '' },
     { key: '騎乘距離由短至長', value: 'CyclingLength asc' },
     { key: '騎乘距離由長至短', value: 'CyclingLength desc' },
   ];
