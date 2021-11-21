@@ -57,6 +57,7 @@ export class BikeLineComponent implements OnInit {
 
   lstSearchResult: BikeShape[] = [];
   currentPage = 1;
+  itemsPerPage = 0;
   constructor(
     private snackBar: MatSnackBar,
     private bikeStationService: BikeStationService,
@@ -64,6 +65,8 @@ export class BikeLineComponent implements OnInit {
 
   ngOnInit(): void {
     this.currentDeviceType = this.deviceDetectorService.getDeviceInfo().deviceType;
+    // 顯示搜尋結果的數量
+    this.itemsPerPage = this.currentDeviceType === DeviceType.Desktop ? 9 : this.lstSearchResult.length;
 
     this.search();
   }
@@ -72,7 +75,7 @@ export class BikeLineComponent implements OnInit {
     const config: MatDialogConfig = {
       data: this.selectedCity,
       width: '70vw',
-      height: '60vh',
+      height: '70vh',
       disableClose: true
     };
     const ref = this.matDialog.open(CitySelectorDialogComponent, config);
@@ -85,7 +88,7 @@ export class BikeLineComponent implements OnInit {
     const config: MatDialogConfig = {
       data: item.Geometry,
       width: '70vw',
-      height: '75vh'
+      height: '80vh'
     }
     this.matDialog.open(BikeLineInfoComponent, config);
   }

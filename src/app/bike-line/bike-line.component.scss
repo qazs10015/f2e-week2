@@ -15,6 +15,7 @@
       height: 74px;
       .title {
         font-weight: bold;
+        margin-bottom: 20px;
       }
       .selector {
         display: flex;
@@ -35,6 +36,7 @@
       height: 157px;
       .title {
         font-weight: bold;
+        margin-bottom: 20px;
       }
       .distanceOptionGroup {
         display: flex;
@@ -51,8 +53,6 @@
       height: 70px;
       .title {
         font-weight: bold;
-      }
-      .orderOption {
       }
     }
 
@@ -73,7 +73,7 @@
     justify-content: space-between;
     width: 80vw;
     flex-direction: column;
-    height: 80vh;
+    height: 70vh;
     .searchResult {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
@@ -86,7 +86,7 @@
         display: flex;
         flex-direction: column;
         min-width: 300px;
-        height: 173px;
+        min-height: 150px;
         border-radius: 10px;
         justify-content: space-between;
         align-items: flex-start;

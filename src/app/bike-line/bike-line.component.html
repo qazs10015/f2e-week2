@@ -2,14 +2,14 @@
   <!-- 搜尋條件 -->
   <div class="filter">
     <div class="city">
-      <p class="title color1">城市</p>
+      <div class="title color1">城市</div>
       <div class="selector" (click)="openCitySelector()">
         {{ selectedCity?.zhtw || "選擇城市" }}
         <i class="fas fa-search"></i>
       </div>
     </div>
     <div class="distance">
-      <p class="title color1">距離</p>
+      <div class="title color1">距離</div>
       <mat-radio-group
         class="distanceOptionGroup"
         [(ngModel)]="selectedDistance"
@@ -23,7 +23,7 @@
       </mat-radio-group>
     </div>
     <div class="order">
-      <p class="title color1">排序</p>
+      <div class="title color1">排序</div>
 
       <!-- [floatLabel]="'never'" -->
       <!-- 有選到值的時候，不顯示 placeholder  -->
@@ -50,7 +50,7 @@
         class="item pointer"
         *ngFor="
           let item of lstSearchResult
-            | paginate: { itemsPerPage: 9, currentPage: currentPage }
+            | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }
         "
       >
         <div class="title">
