@@ -1,34 +1,90 @@
-<div class="filter">
-  <div class="city">
-    <p class="title color1"><i class="fas fa-map-marker-alt"></i> 城市</p>
-    <div class="selector" (click)="openCitySelector()">
-      {{ currentSelectedCity?.zhtw || "選擇城市" }}
+<div class="container">
+  <!-- 搜尋條件 -->
+  <div class="filter">
+    <div class="city">
+      <p class="title color1"><i class="fas fa-map-marker-alt"></i> 城市</p>
+      <div class="selector" (click)="openCitySelector()">
+        {{ selectedCity?.zhtw || "選擇城市" }}
+        <i class="fas fa-search"></i>
+      </div>
+    </div>
+    <div class="distance">
+      <p class="title color1">距離</p>
+      <mat-radio-group
+        class="distanceOptionGroup"
+        [(ngModel)]="selectedDistance"
+      >
+        <mat-radio-button
+          class="distanceOption"
+          [value]="item.value"
+          *ngFor="let item of distanceOptions"
+          >{{ item.key }}</mat-radio-button
+        >
+      </mat-radio-group>
+    </div>
+    <div class="order">
+      <p class="title color1">排序</p>
+
+      <!-- [floatLabel]="'never'" -->
+      <!-- 有選到值的時候，不顯示 placeholder  -->
+      <mat-form-field [floatLabel]="'never'">
+        <mat-label>選擇排序</mat-label>
+        <mat-select [(value)]="selectedOrder">
+          <mat-option
+            *ngFor="let orderOption of orderOptions"
+            [value]="orderOption.value"
+          >
+            <span [innerHTML]="orderOption.key"></span>
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="serachBikeLine" (click)="search()">搜尋自行車路線</div>
+  </div>
+
+  <!-- 結果顯示 -->
+  <div class="serachContainer">
+    <div class="searchResult">
+      <div
+        (click)="openDialog(item)"
+        class="item"
+        *ngFor="
+          let item of lstSearchResult
+            | paginate: { itemsPerPage: 9, currentPage: currentPage }
+        "
+      >
+        <div class="title">
+          <div>{{ item.RouteName }}</div>
+          <div class="cityName color4">{{ item.City }}</div>
+        </div>
+        <div>
+          {{ item.RoadSectionStart }}
+
+          <ng-container [ngSwitch]="item.Direction">
+            <ng-container *ngSwitchCase="'雙向'">
+              <span class="blue"><i class="fas fa-arrows-alt-h"></i></span>
+            </ng-container>
+            <ng-container *ngSwitchDefault>
+              <span class="green"><i class="fas fa-arrow-right"></i></span>
+            </ng-container>
+          </ng-container>
+
+          {{ item.RoadSectionEnd }}
+        </div>
+        <div>
+          騎乘距離：{{ item.CyclingLength }}
+          公尺
+        </div>
+      </div>
+    </div>
+
+    <div class="paginitor" *ngIf="lstSearchResult.length > 0">
+      <pagination-controls
+        (pageChange)="currentPage = $event"
+        [maxSize]="10"
+        [previousLabel]="''"
+        [nextLabel]="''"
+      ></pagination-controls>
     </div>
   </div>
-  <div class="distance">
-    <p class="title">距離</p>
-    <mat-radio-group class="distanceOptionGroup">
-      <mat-radio-button
-        class="distanceOption"
-        [value]="item.value"
-        *ngFor="let item of distanceOptions"
-        >{{ item.key }}</mat-radio-button
-      >
-    </mat-radio-group>
-  </div>
-  <div class="order">
-    <p class="title">排序</p>
-    <mat-form-field>
-      <mat-label>選擇排序</mat-label>
-      <mat-select>
-        <mat-option
-          *ngFor="let orderOption of orderOptions"
-          [value]="orderOption.value"
-        >
-          <span [innerHTML]="orderOption.key"></span>
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-  </div>
-  <div class="serach">搜尋自行車路線</div>
 </div>

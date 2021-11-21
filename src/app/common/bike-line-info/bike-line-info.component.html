@@ -1,0 +1,28 @@
+<div *ngIf="apiLoaded | async">
+  <google-map
+    class="map"
+    height="100%"
+    width="100%"
+    [zoom]="zoom"
+    [center]="startPosition"
+    [options]="googleMapOptions"
+  >
+    <!-- 起點的位置 -->
+    <map-marker
+      #marker="mapMarker"
+      [position]="startPosition"
+      [options]="markerOptions"
+      [icon]="startIcon"
+    ></map-marker>
+
+    <!-- 終點的位置 -->
+    <map-marker
+      #marker="mapMarker"
+      [position]="endPosition"
+      [options]="markerOptions"
+      [icon]="endIcon"
+    ></map-marker>
+
+    <map-polyline [options]="polyOptions" [path]="polyPath"></map-polyline>
+  </google-map>
+</div>

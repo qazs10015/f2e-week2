@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientJsonpModule, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './auth.interceptor';
 import { SharedModule } from './shared/shared.module';
 import { BikeStationComponent } from './bike-station/bike-station.component';
@@ -14,6 +14,7 @@ import { BikeLineComponent } from './bike-line/bike-line.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
 import { CitySelectorDialogComponent } from './common/city-selector-dialog/city-selector-dialog.component';
+import { BikeLineInfoComponent } from './common/bike-line-info/bike-line-info.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { CitySelectorDialogComponent } from './common/city-selector-dialog/city-
     BikeStationComponent,
     ScenicSpotComponent,
     BikeLineComponent,
-    CitySelectorDialogComponent
+    CitySelectorDialogComponent,
+    BikeLineInfoComponent
   ],
   imports: [
     BrowserModule,
@@ -30,6 +32,7 @@ import { CitySelectorDialogComponent } from './common/city-selector-dialog/city-
     BrowserAnimationsModule,
     SharedModule,
     HttpClientModule,
+    HttpClientJsonpModule,
     ReactiveFormsModule,
     FormsModule
   ],

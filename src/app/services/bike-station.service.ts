@@ -40,14 +40,21 @@ export class BikeStationService {
   }
 
   /** 取得指定縣市的 Bike 車道路網圖資資料 */
-  getCyclingShape(city: string, top?: number) {
+  getCyclingShape(city: string, distance: string, orderby: string, top?: number) {
     let params: any = {
       $format: 'JSON'
     }
     if (top) {
       params['$top'] = top
     }
-    return this.http.get<BikeShape[]>(this.cyclingApi + city, { params: params });
+    if (distance) {
+      params['$filter'] = distance;
+    }
+    if (orderby !== '') {
+      debugger
+      params['$orderby'] = orderby;
+    }
+    return this.http.get<BikeShape[]>(this.cyclingApi + city, { params: params }).toPromise();
   }
 
   /** 取得附近的 Bike 租借站資料

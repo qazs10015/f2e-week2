@@ -8,8 +8,9 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { NgxPaginationModule } from 'ngx-pagination';
 const materialModules = [MatAutocompleteModule, MatInputModule, MatSnackBarModule, MatDialogModule, MatRadioModule, MatSelectModule, MatExpansionModule]
-const thirdModules = [GoogleMapsModule]
+const thirdModules = [GoogleMapsModule, NgxPaginationModule]
 
 @NgModule({
   declarations: [],

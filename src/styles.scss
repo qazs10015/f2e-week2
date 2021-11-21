@@ -27,6 +27,16 @@ body {
   text-align: right;
 }
 
+// 強制調整 pagination 元件的樣式
+.ngx-pagination {
+  li {
+    width: 40px;
+  }
+  .current {
+    padding: 0 !important;
+  }
+}
+
 // PC
 @media only screen and (min-width: 1440px) {
   body {
