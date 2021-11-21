@@ -31,7 +31,7 @@
       ![image](https://user-images.githubusercontent.com/30744341/142015958-18657167-a882-4e7f-b75b-b76399a20d04.png)
       ![image](https://user-images.githubusercontent.com/30744341/142748796-44c89955-15dd-4a24-a7b4-cd0b22b7742f.png)
 
-## Google Map 使用方式
+## Google Map API 使用方式
   
 1. 在專案中使用 GoogleMap 可以參考：
     * [Angular GoogleMap](https://github.com/angular/components/tree/master/src/google-maps)
