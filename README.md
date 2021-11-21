@@ -26,7 +26,7 @@
         
       ![image](https://user-images.githubusercontent.com/30744341/142015006-b5d26232-2e88-46ca-b21b-ae2d998a3ca4.png)
 1. [啟用 Google API](https://console.cloud.google.com/apis/library)
-    > 本專案使用 Maps JavaScript API、Distance Matrix API
+    > 本專案使用 Maps JavaScript API、(未實作)Distance Matrix API
 
       ![image](https://user-images.githubusercontent.com/30744341/142015958-18657167-a882-4e7f-b75b-b76399a20d04.png)
       ![image](https://user-images.githubusercontent.com/30744341/142748796-44c89955-15dd-4a24-a7b4-cd0b22b7742f.png)
@@ -38,7 +38,7 @@
 1. [Angular GoogleMap](https://github.com/angular/components/tree/master/src/google-maps)
 1. [Angular 如何整合 Google Maps 設定篇](https://medium.com/jason-read-code/angular-%E5%A6%82%E4%BD%95%E6%95%B4%E5%90%88-google-maps-%E8%A8%AD%E5%AE%9A%E7%AF%87-1a83290ef71b)
 1. [Google Maps is now an Angular component](https://timdeschryver.dev/blog/google-maps-as-an-angular-component)
-1. [運用Google Map API(Distance Matrix Service)取得旅程時間及距離](https://icelandcheng.medium.com/%E9%81%8B%E7%94%A8google-map-api-distance-matrix-service-%E5%8F%96%E5%BE%97%E6%97%85%E7%A8%8B%E6%99%82%E9%96%93%E5%8F%8A%E8%B7%9D%E9%9B%A2-4e7c9b929e9e)
+1. [(未實作)運用Google Map API(Distance Matrix Service)取得旅程時間及距離](https://icelandcheng.medium.com/%E9%81%8B%E7%94%A8google-map-api-distance-matrix-service-%E5%8F%96%E5%BE%97%E6%97%85%E7%A8%8B%E6%99%82%E9%96%93%E5%8F%8A%E8%B7%9D%E9%9B%A2-4e7c9b929e9e)
 
     
 
