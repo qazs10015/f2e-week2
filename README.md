@@ -38,6 +38,7 @@
 
       ![image](https://user-images.githubusercontent.com/30744341/142015958-18657167-a882-4e7f-b75b-b76399a20d04.png)
       ![image](https://user-images.githubusercontent.com/30744341/142748796-44c89955-15dd-4a24-a7b4-cd0b22b7742f.png)
+1. [GoogleMap 計價方式](https://developers.google.com/maps/billing/gmp-billing)
 
 ## Google Map API 使用方式
   
