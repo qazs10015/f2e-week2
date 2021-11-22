@@ -45,6 +45,6 @@
 1. [HTML `<a>` 標籤使用 googleMap 較常見的使用方式](https://gearside.com/easily-link-to-locations-and-directions-using-the-new-google-maps/)
 
 ## 天氣資訊(未實作)
-本專案右上有一個及時天氣資訊，經查詢後也許可以使用氣象局的開放資料，但須要註冊並取得授權碼
-[連結](https://opendata.cwb.gov.tw/dataset/climate/C-B0024-001)
+[本專案右上有一個及時天氣資訊，經查詢後也許可以使用氣象局的開放資料，但需要註冊並取得授權碼](https://opendata.cwb.gov.tw/dataset/climate/C-B0024-001)
+
 
