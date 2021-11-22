@@ -27,6 +27,7 @@
 ## GoogleMap 申請流程
 > Google API　需要申請付費帳號(Billing Account)才能正常使用，申請成功後會提供300美金額度使用
 
+1. [GoogleMap 計價方式](https://developers.google.com/maps/billing/gmp-billing)
 1. [初次使用可以先看簡介影片](https://youtu.be/2_HZObVbe-g)
 1. [建立 APIKey](https://developers.google.com/maps/documentation/javascript/get-api-key)
 
@@ -38,7 +39,7 @@
 
       ![image](https://user-images.githubusercontent.com/30744341/142015958-18657167-a882-4e7f-b75b-b76399a20d04.png)
       ![image](https://user-images.githubusercontent.com/30744341/142748796-44c89955-15dd-4a24-a7b4-cd0b22b7742f.png)
-1. [GoogleMap 計價方式](https://developers.google.com/maps/billing/gmp-billing)
+
 
 ## Google Map API 使用方式
   
