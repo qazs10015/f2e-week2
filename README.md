@@ -14,10 +14,11 @@
 ## 網站簡介
 此網站**大部分**依照設計稿設計且支援 RWD，部分 UI 因操作時有可能擋住地圖，所以調整位置
 
-設計稿中的 **美食/景點** 功能在此專案中未實作，因為這個功能已在第一週的專案中做過了所以暫無打算做同樣的功能
+(未實作)設計稿中的 **美食/景點** 功能，因為這個功能已在第一週的專案中做過了所以暫無打算做同樣的功能
 
-設計稿中自行車道搜尋的排序 **距離最近** 的功能未實作
+(未實作)設計稿中自行車道搜尋的排序 **距離最近** 的功能
 
+(未實作)[本專案右上有一個及時天氣資訊，經查詢後也許可以使用氣象局的開放資料，但需要註冊並取得授權碼](https://opendata.cwb.gov.tw/dataset/climate/C-B0024-001)
 
 ## GoogleMap 申請流程
 > Google API　需要申請付費帳號(Billing Account)才能正常使用，申請成功後會提供300美金額度使用
@@ -44,7 +45,5 @@
 1. [(未實作)運用Google Map API(Distance Matrix Service)取得旅程時間及距離](https://icelandcheng.medium.com/%E9%81%8B%E7%94%A8google-map-api-distance-matrix-service-%E5%8F%96%E5%BE%97%E6%97%85%E7%A8%8B%E6%99%82%E9%96%93%E5%8F%8A%E8%B7%9D%E9%9B%A2-4e7c9b929e9e)
 1. [HTML `<a>` 標籤使用 googleMap 較常見的使用方式](https://gearside.com/easily-link-to-locations-and-directions-using-the-new-google-maps/)
 
-## 天氣資訊(未實作)
-[本專案右上有一個及時天氣資訊，經查詢後也許可以使用氣象局的開放資料，但需要註冊並取得授權碼](https://opendata.cwb.gov.tw/dataset/climate/C-B0024-001)
 
 
