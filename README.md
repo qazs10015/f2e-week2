@@ -7,6 +7,8 @@
 
  其他套件：[Angualr Material](https://material.angular.io/)、[Angular GoogleMap](https://github.com/angular/components/tree/master/src/google-maps)、[ngx-pagination](https://www.npmjs.com/package/ngx-pagination)、[jssha(加密套件)](https://github.com/Caligatio/jsSHA)、[ngx-device-detector](https://github.com/KoderLabs/ngx-device-detector#readme)
 
+資料來源：[TDX 運輸資料流通服務](https://tdx.transportdata.tw/api-service/swagger)
+
 ## UI組設計師資料
 
 [zoe](https://2021.thef2e.com/users/6296432819610583695?week=2&type=1)、[figma 設計稿](https://www.figma.com/file/zmcW9WenYEJubgYIY4Usqo/Week2---%E8%87%AA%E8%A1%8C%E8%BB%8A%E9%81%93%E5%9C%B0%E5%9C%96%E8%B3%87%E8%A8%8A%E6%95%B4%E5%90%88%E7%B6%B2?node-id=13%3A27)
